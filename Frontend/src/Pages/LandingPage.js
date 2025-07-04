@@ -3,6 +3,7 @@ import { HeroSection } from "../Components/HeroSection";
 import Navbar from "../Components/Navbar";
 import { ProblemSection } from "../Components/ProblemSection";
 import { PlatformsList } from "../Components/PlatformsList";
+import { MultiBrandSection } from "../Components/MultiBrandSection";
 
 const LandingPage = () => {
   return (
@@ -11,6 +12,7 @@ const LandingPage = () => {
       <HeroSection />
       <ProblemSection />
       <PlatformsList />
+      <MultiBrandSection />
     </>
   );
 };
