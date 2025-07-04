@@ -39,7 +39,7 @@ export const ProblemSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mx-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:mx-20">
           {problems.map((problem, index) => (
             <div
               key={index}
