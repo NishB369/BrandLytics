@@ -1,8 +1,10 @@
 import { TrendingUp, MessageSquare, ArrowRight } from "lucide-react";
 import { brands } from "../../constants/LandingPageCopyritingData/MultiBrandSection";
 import { features } from "../../constants/LandingPageCopyritingData/MultiBrandSection";
+import { useNavigate } from "react-router";
 
 export const MultiBrandSection = () => {
+  const navigate = useNavigate();
   return (
     <section
       className="py-16 bg-gradient-to-br from-slate-50 to-purple-50/30 md:px-20"
@@ -115,7 +117,10 @@ export const MultiBrandSection = () => {
         </div>
 
         <div className="text-center">
-          <button className="group inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:shadow-purple-200 transition-all duration-300 transform hover:scale-105">
+          <button
+            className="group inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:shadow-purple-200 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+            onClick={() => navigate("/dashboard")}
+          >
             Manage Multiple Brands
             <ArrowRight
               size={16}

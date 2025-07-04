@@ -1,6 +1,8 @@
-import { ArrowRight, Check, Users, Calendar, Shield } from "lucide-react";
+import { ArrowRight, Check, Users, Calendar } from "lucide-react";
+import { useNavigate } from "react-router";
 
 export default function FinalCTASection() {
+  const navigate = useNavigate();
   const benefits = [
     {
       icon: Check,
@@ -48,13 +50,16 @@ export default function FinalCTASection() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-          <button className="bg-white text-purple-600 hover:bg-gray-50 px-10 py-6 text-lg font-bold transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 rounded-lg inline-flex items-center justify-center cursor-pointer">
-            Start Free 14-Day Trial
+          <button
+            onClick={() => navigate("/dashboard")}
+            className="bg-white text-purple-600 hover:bg-gray-50 px-10 py-6 text-lg font-bold transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 rounded-lg inline-flex items-center justify-center cursor-pointer"
+          >
+            Start Journey of Tracking Brands
             <ArrowRight className="ml-3 h-6 w-6" />
           </button>
           <button className="border border-white/30 text-white hover:bg-white/10 px-10 py-6 text-lg font-semibold transition-all duration-200 rounded-lg bg-transparent inline-flex items-center justify-center cursor-pointer">
             <Calendar className="mr-3 h-6 w-6" />
-            Schedule Demo with Expert
+            Watch Demo
           </button>
         </div>
 

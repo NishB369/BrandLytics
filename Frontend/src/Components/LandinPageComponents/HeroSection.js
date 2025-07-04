@@ -1,7 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
 export const HeroSection = () => {
+  const navigate = useNavigate();
   const [mentionsCount, setMentionsCount] = useState(9847523);
   const [brandsCount, setBrandsCount] = useState(487);
 
@@ -48,7 +50,10 @@ export const HeroSection = () => {
 
         {/* CTA buttons */}
         <div className="flex justify-center mb-10">
-          <button className="bg-purple-500 text-white px-4 py-3 rounded-md flex items-center cursor-pointer hover:bg-purple-700 duration-200 ease-in-out transition-colors">
+          <button
+            className="bg-purple-500 text-white px-4 py-3 rounded-md flex items-center cursor-pointer hover:bg-purple-700 duration-200 ease-in-out transition-colors"
+            onClick={() => navigate("/dashboard")}
+          >
             Start Free Monitoring
             <ArrowRight className="h-4 w-4 ml-2" />
           </button>
