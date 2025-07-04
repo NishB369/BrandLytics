@@ -81,7 +81,7 @@ export const MultiBrandSection = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start mb-12">
           {/* Brand Cards */}
           <div className="space-y-4 order-2 lg:order-1">
-            <div className="mb-6">
+            <div className="mb-6 text-right">
               <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">
                 Your Brand Portfolio
               </h3>

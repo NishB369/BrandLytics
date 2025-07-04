@@ -4,6 +4,7 @@ import Navbar from "../Components/Navbar";
 import { ProblemSection } from "../Components/ProblemSection";
 import { PlatformsList } from "../Components/PlatformsList";
 import { MultiBrandSection } from "../Components/MultiBrandSection";
+import { RealTimeFeaturesSection } from "../Components/RealTimeFeaturesSection";
 
 const LandingPage = () => {
   return (
@@ -13,6 +14,7 @@ const LandingPage = () => {
       <ProblemSection />
       <PlatformsList />
       <MultiBrandSection />
+      <RealTimeFeaturesSection />
     </>
   );
 };
