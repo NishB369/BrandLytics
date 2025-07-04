@@ -5,6 +5,7 @@ import { ProblemSection } from "../Components/ProblemSection";
 import { PlatformsList } from "../Components/PlatformsList";
 import { MultiBrandSection } from "../Components/MultiBrandSection";
 import { RealTimeFeaturesSection } from "../Components/RealTimeFeaturesSection";
+import FinalCTASection from "../Components/FinalCTASection";
 
 const LandingPage = () => {
   return (
@@ -15,6 +16,7 @@ const LandingPage = () => {
       <PlatformsList />
       <MultiBrandSection />
       <RealTimeFeaturesSection />
+      <FinalCTASection />
     </>
   );
 };
