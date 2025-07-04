@@ -1,5 +1,6 @@
-import { Zap, Bell, TrendingUp, Target } from "lucide-react";
 import { useState, useEffect } from "react";
+import { features } from "../../constants/LandingPageCopyritingData/RealTimeFeatures";
+import { liveMentions } from "../../constants/LandingPageCopyritingData/RealTimeFeatures";
 
 export const RealTimeFeaturesSection = () => {
   const [liveCount, setLiveCount] = useState(1247);
@@ -11,50 +12,8 @@ export const RealTimeFeaturesSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const features = [
-    {
-      icon: Zap,
-      title: "30-second updates",
-      description: "Mentions refresh every 30 seconds for real-time monitoring",
-      metric: "99.9% accuracy",
-    },
-    {
-      icon: Bell,
-      title: "Instant alerts",
-      description: "Get notified immediately when sentiment drops or spikes",
-      metric: "< 1 min response",
-    },
-    {
-      icon: TrendingUp,
-      title: "Live competitor tracking",
-      description: "Watch competitor mentions and trends as they happen",
-      metric: "24/7 monitoring",
-    },
-  ];
-
-  const liveMentions = [
-    {
-      brand: "Nike",
-      platform: "Twitter",
-      sentiment: "positive",
-      time: "2m ago",
-    },
-    {
-      brand: "Starbucks",
-      platform: "Instagram",
-      sentiment: "neutral",
-      time: "4m ago",
-    },
-    {
-      brand: "Netflix",
-      platform: "Reddit",
-      sentiment: "positive",
-      time: "7m ago",
-    },
-  ];
-
   return (
-    <section className="py-16 bg-slate-50 md:px-20">
+    <section className="py-16 bg-slate-50 md:px-20" id="real-time-monitoring">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight">

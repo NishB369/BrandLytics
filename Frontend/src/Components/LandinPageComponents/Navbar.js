@@ -26,22 +26,22 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center space-x-8 text-black">
             <button
-              onClick={() => scrollToSection("features")}
+              onClick={() => scrollToSection("platforms-list")}
               className="hover:text-purple-800 transition-colors cursor-pointer"
             >
-              Features
+              Platforms List
             </button>
             <button
-              onClick={() => scrollToSection("how-it-works")}
+              onClick={() => scrollToSection("multiple-brands")}
               className="hover:text-purple-800 transition-colors cursor-pointer"
             >
-              How It Works
+              Multiple Brands
             </button>
             <button
-              onClick={() => scrollToSection("testimonials")}
+              onClick={() => scrollToSection("real-time-monitoring")}
               className="hover:text-purple-800 transition-colors cursor-pointer"
             >
-              Testimonials
+              Real Time Monitoring
             </button>
           </div>
 

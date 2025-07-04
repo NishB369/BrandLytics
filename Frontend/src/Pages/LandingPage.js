@@ -1,11 +1,11 @@
 import React from "react";
-import { HeroSection } from "../Components/HeroSection";
-import Navbar from "../Components/Navbar";
-import { ProblemSection } from "../Components/ProblemSection";
-import { PlatformsList } from "../Components/PlatformsList";
-import { MultiBrandSection } from "../Components/MultiBrandSection";
-import { RealTimeFeaturesSection } from "../Components/RealTimeFeaturesSection";
-import FinalCTASection from "../Components/FinalCTASection";
+import { HeroSection } from "../Components/LandinPageComponents/HeroSection";
+import Navbar from "../Components/LandinPageComponents/Navbar";
+import { ProblemSection } from "../Components/LandinPageComponents/ProblemSection";
+import { PlatformsList } from "../Components/LandinPageComponents/PlatformsList";
+import { MultiBrandSection } from "../Components/LandinPageComponents/MultiBrandSection";
+import { RealTimeFeaturesSection } from "../Components/LandinPageComponents/RealTimeFeaturesSection";
+import FinalCTASection from "../Components/LandinPageComponents/FinalCTASection";
 
 const LandingPage = () => {
   return (

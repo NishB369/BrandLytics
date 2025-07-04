@@ -1,67 +1,13 @@
-import {
-  Building2,
-  Users,
-  BarChart3,
-  Settings,
-  TrendingUp,
-  MessageSquare,
-  ArrowRight,
-} from "lucide-react";
+import { TrendingUp, MessageSquare, ArrowRight } from "lucide-react";
+import { brands } from "../../constants/LandingPageCopyritingData/MultiBrandSection";
+import { features } from "../../constants/LandingPageCopyritingData/MultiBrandSection";
 
 export const MultiBrandSection = () => {
-  const brands = [
-    {
-      name: "Nike",
-      industry: "Fashion",
-      sentiment: "+47%",
-      mentions: "12.3K",
-      color: "bg-gradient-to-r from-purple-400 to-purple-600",
-      bgColor: "bg-purple-50",
-      textColor: "text-purple-700",
-    },
-    {
-      name: "Physics Wallah",
-      industry: "Education",
-      sentiment: "+52%",
-      mentions: "8.7K",
-      color: "bg-gradient-to-r from-purple-500 to-purple-700",
-      bgColor: "bg-purple-100",
-      textColor: "text-purple-800",
-    },
-    {
-      name: "Starbucks",
-      industry: "F&B",
-      sentiment: "+38%",
-      mentions: "15.2K",
-      color: "bg-gradient-to-r from-purple-600 to-purple-800",
-      bgColor: "bg-purple-200",
-      textColor: "text-purple-900",
-    },
-  ];
-
-  const features = [
-    {
-      icon: Building2,
-      title: "Switch between brands instantly",
-      description: "Toggle between Nike and Physics Wallah in one click",
-      color: "from-purple-400 to-purple-600",
-    },
-    {
-      icon: BarChart3,
-      title: "Compare performance",
-      description: "Analyze sentiment across your entire brand portfolio",
-      color: "from-purple-500 to-purple-700",
-    },
-    {
-      icon: Settings,
-      title: "Industry-specific alerts",
-      description: "Custom notifications for fashion vs education industries",
-      color: "from-purple-600 to-purple-800",
-    },
-  ];
-
   return (
-    <section className="py-16 bg-gradient-to-br from-slate-50 to-purple-50/30 md:px-20">
+    <section
+      className="py-16 bg-gradient-to-br from-slate-50 to-purple-50/30 md:px-20"
+      id="multiple-brands"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 md:mb-6 tracking-tight leading-tight">
@@ -99,7 +45,9 @@ export const MultiBrandSection = () => {
                     <div className="flex items-center gap-3 sm:gap-4">
                       <div
                         className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full ${brand.color} shadow-lg text-white font-black p-4 flex items-center justify-center`}
-                      >{brand.name.charAt(0)}</div>
+                      >
+                        {brand.name.charAt(0)}
+                      </div>
                       <div>
                         <h4 className="font-bold text-slate-900 text-base sm:text-lg group-hover:text-purple-700 transition-colors">
                           {brand.name}
