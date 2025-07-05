@@ -8,15 +8,25 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
 export default function OnboardingDone({ onNext }) {
   const [isAnimating, setIsAnimating] = useState(false);
+  const [brandName, setBrandname] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    localStorage.setItem("onboardingComplete", true);
+    navigate("/dashboard");
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIsAnimating(true);
       setTimeout(() => setIsAnimating(false), 500);
     }, 3000);
+
+    setBrandname(localStorage.getItem("brandName"));
 
     return () => clearInterval(interval);
   }, []);
@@ -47,8 +57,15 @@ export default function OnboardingDone({ onNext }) {
             <div className="relative">
               {/* Central Dashboard */}
               <div className="bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl p-6 shadow-lg flex items-center justify-center flex-col">
-                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
-                  <LayoutDashboard className="h-8 w-8 text-purple-600" />
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-white">
+                  {brandName ? (
+                    <img
+                      src={`https://img.logo.dev/${brandName}?token=pk_DqhPz-piQqeDaR3o1tTDGw`}
+                      className="rounded-full"
+                    />
+                  ) : (
+                    <LayoutDashboard className="h-8 w-8 text-purple-600" />
+                  )}
                 </div>
                 <div className="mt-3 text-white text-sm font-semibold">
                   Insights Await
@@ -77,7 +94,7 @@ export default function OnboardingDone({ onNext }) {
           {/* CTA Buttons */}
           <div className="flex justify-center mb-6">
             <button
-              onClick={onNext}
+              onClick={handleSubmit}
               className="bg-slate-900 hover:bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center transition-all duration-400 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer ease-in-out"
             >
               Move to Dashboard
@@ -92,18 +109,6 @@ export default function OnboardingDone({ onNext }) {
             </p>
           </div>
         </div>
-
-        {/* Additional floating elements
-          <div className="absolute top-20 -left-20 bg-white/90 backdrop-blur-sm rounded-lg p-3 border border-slate-200 shadow-lg animate-float hidden lg:block">
-            <div className="text-purple-600 font-semibold text-sm">
-              📊 Real-time Analytics
-            </div>
-          </div>
-          <div className="absolute -bottom-4 -right-8 bg-white/90 backdrop-blur-sm rounded-lg p-3 border border-slate-200 shadow-lg animate-float delay-1000 hidden lg:block">
-            <div className="text-violet-600 font-semibold text-sm">
-              🎯 Smart Insights
-            </div>
-          </div> */}
       </div>
 
       <style>{`

@@ -349,33 +349,18 @@ export default function OnboardingStep5({ onNext, onPrev }) {
           </div>
         </div>
 
-        {/* Industry Recommendation */}
-        <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <Lightbulb className="h-5 w-5 text-blue-600 mt-0.5" />
-            <div>
-              <div className="font-medium text-blue-900 mb-1">
-                Industry Recommendation
-              </div>
-              <div className="text-sm text-blue-800">
-                {getIndustryRecommendation()}
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Navigation Buttons */}
         <div className="flex justify-between">
           <button
             onClick={onPrev}
-            className="px-6 py-3 rounded-lg font-semibold flex items-center justify-center transition-all duration-200 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300"
+            className="px-6 py-3 rounded-lg font-semibold flex items-center justify-center transition-all duration-200 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 cursor-pointer"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back
           </button>
           <button
             onClick={handleContinue}
-            className="px-6 py-3 rounded-lg font-semibold flex items-center justify-center transition-all duration-200 bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl"
+            className="px-6 py-3 rounded-lg font-semibold flex items-center justify-center transition-all duration-200 bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl cursor-pointer"
           >
             Continue
             <ArrowRight className="h-4 w-4 ml-2" />

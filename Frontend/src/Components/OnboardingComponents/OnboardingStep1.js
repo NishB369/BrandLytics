@@ -75,13 +75,13 @@ export default function OnboardingStep1({ onNext, onPrev }) {
         {/* Brand Name Input */}
         <div className="mb-6">
           <label className="block text-base font-semibold text-slate-700 mb-2">
-            📝 Brand Name
+            📝 Brand Website
           </label>
           <input
             type="text"
             value={brandName}
             onChange={(e) => setBrandName(e.target.value)}
-            placeholder="e.g., Nike, Physics Wallah, Starbucks"
+            placeholder="e.g., nike.com, pw.live, claude.ai"
             className="w-full px-3 py-3 text-base border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-white/90 backdrop-blur-sm"
           />
         </div>
@@ -98,7 +98,7 @@ export default function OnboardingStep1({ onNext, onPrev }) {
                 <button
                   key={industry.id}
                   onClick={() => setSelectedIndustry(industry.id)}
-                  className={`p-3 rounded-lg border-2 transition-all duration-200 text-left flex items-center space-x-3 hover:shadow-md ${
+                  className={`p-3 rounded-lg border-2 transition-all duration-200 text-left flex items-center space-x-3 hover:shadow-md cursor-pointer ${
                     selectedIndustry === industry.id
                       ? "border-purple-500 bg-purple-50 shadow-md"
                       : "border-slate-200 bg-white/90 backdrop-blur-sm hover:border-slate-300"
