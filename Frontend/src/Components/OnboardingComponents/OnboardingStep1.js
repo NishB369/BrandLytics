@@ -59,6 +59,9 @@ export default function OnboardingStep1({ onNext, onPrev }) {
     }
   };
 
+  localStorage.setItem("brandName", brandName);
+  localStorage.setItem("industry", selectedIndustry);
+
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-6 md:p-8">
@@ -125,7 +128,7 @@ export default function OnboardingStep1({ onNext, onPrev }) {
             onClick={handleContinue}
             disabled={!brandName.trim()}
             className={`px-6 py-3 rounded-lg font-semibold flex items-center justify-center transition-all duration-400 shadow-lg transform ${
-              brandName.trim()
+              brandName.trim() && selectedIndustry
                 ? "bg-purple-600 hover:bg-slate-900 text-white hover:shadow-xl cursor-pointer"
                 : "bg-slate-400 cursor-not-allowed"
             }`}
