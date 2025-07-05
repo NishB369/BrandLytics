@@ -5,6 +5,7 @@ import OnboardingStep2 from "../Components/OnboardingComponents/OnboardingStep2"
 import OnboardingStep3 from "../Components/OnboardingComponents/OnboardingStep3";
 import OnboardingStep4 from "../Components/OnboardingComponents/OnboardingStep4";
 import OnboardingStep5 from "../Components/OnboardingComponents/OnboardingStep5";
+import OnboardingDone from "../Components/OnboardingComponents/OnboardingDone";
 
 // Progress Bar Component
 const ProgressBar = ({ currentStep, totalSteps, isAnimating }) => {
@@ -45,7 +46,7 @@ const Onboarding = () => {
     teamSize: "",
   });
 
-  const totalSteps = 6; // 0, 1, 2, 3, 4, 5, 6
+  const totalSteps = 7; // 0, 1, 2, 3, 4, 5, 6
 
   // Animated progress dots
   useEffect(() => {
@@ -149,7 +150,7 @@ const Onboarding = () => {
           {currentStep === 3 && <OnboardingStep3 {...stepProps} />}
           {currentStep === 4 && <OnboardingStep4 {...stepProps} />}
           {currentStep === 5 && <OnboardingStep5 {...stepProps} />}
-          {currentStep === 6 && <OnboardingStep6 {...stepProps} />}
+          {currentStep === 6 && <OnboardingDone {...stepProps} />}
         </div>
       </div>
 
