@@ -150,7 +150,7 @@ const Onboarding = () => {
           {currentStep === 3 && <OnboardingStep3 {...stepProps} />}
           {currentStep === 4 && <OnboardingStep4 {...stepProps} />}
           {currentStep === 5 && <OnboardingStep5 {...stepProps} />}
-          {currentStep === 6 && <OnboardingDone {...stepProps} />}
+          {currentStep === 6 && <OnboardingDone />}
         </div>
       </div>
 

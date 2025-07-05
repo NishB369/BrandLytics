@@ -12,6 +12,7 @@ import { useState } from "react";
 
 export default function OnboardingStep1({ onNext, onPrev }) {
   const [brandName, setBrandName] = useState("");
+  const [brandWebsite, setBrandWebsite] = useState("");
   const [selectedIndustry, setSelectedIndustry] = useState("");
 
   const industries = [
@@ -55,11 +56,12 @@ export default function OnboardingStep1({ onNext, onPrev }) {
 
   const handleContinue = () => {
     if (brandName.trim() && onNext) {
-      onNext({ brandName, industry: selectedIndustry });
+      onNext({ brandName, industry: selectedIndustry, brandWebsite });
     }
   };
 
   localStorage.setItem("brandName", brandName);
+  localStorage.setItem("brandWebsite", brandWebsite);
   localStorage.setItem("industry", selectedIndustry);
 
   return (
@@ -72,18 +74,34 @@ export default function OnboardingStep1({ onNext, onPrev }) {
           </h1>
         </div>
 
-        {/* Brand Name Input */}
-        <div className="mb-6">
-          <label className="block text-base font-semibold text-slate-700 mb-2">
-            📝 Brand Website
-          </label>
-          <input
-            type="text"
-            value={brandName}
-            onChange={(e) => setBrandName(e.target.value)}
-            placeholder="e.g., nike.com, pw.live, claude.ai"
-            className="w-full px-3 py-3 text-base border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-white/90 backdrop-blur-sm"
-          />
+        <div className="mb-6 flex items-center justify-between gap-4 w-full">
+          <div className="w-1/2">
+            {/* Brand Name Input */}
+            <label className="block text-base font-semibold text-slate-700 mb-2">
+              📝 Brand Name
+            </label>
+            <input
+              type="text"
+              value={brandName}
+              onChange={(e) => setBrandName(e.target.value)}
+              placeholder="e.g., Nike, Physics Wallah, Claude"
+              className="w-full px-3 py-3 text-base border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-white/90 backdrop-blur-sm"
+            />
+          </div>
+
+          <div className="w-1/2">
+            {/* Brand Wesbite Input */}
+            <label className="block text-base font-semibold text-slate-700 mb-2">
+              🌐 Brand Website
+            </label>
+            <input
+              type="text"
+              value={brandWebsite}
+              onChange={(e) => setBrandWebsite(e.target.value)}
+              placeholder="e.g., nike.com, pw.live, claude.ai"
+              className="w-full px-3 py-3 text-base border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-white/90 backdrop-blur-sm"
+            />
+          </div>
         </div>
 
         {/* Industry Selection */}

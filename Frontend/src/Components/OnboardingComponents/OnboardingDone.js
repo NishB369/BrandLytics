@@ -10,9 +10,9 @@ import {
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
-export default function OnboardingDone({ onNext }) {
+export default function OnboardingDone() {
   const [isAnimating, setIsAnimating] = useState(false);
-  const [brandName, setBrandname] = useState("");
+  const [brandWebsite, setBrandWebsite] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = () => {
@@ -26,7 +26,7 @@ export default function OnboardingDone({ onNext }) {
       setTimeout(() => setIsAnimating(false), 500);
     }, 3000);
 
-    setBrandname(localStorage.getItem("brandName"));
+    setBrandWebsite(localStorage.getItem("brandWebsite"));
 
     return () => clearInterval(interval);
   }, []);
@@ -58,9 +58,9 @@ export default function OnboardingDone({ onNext }) {
               {/* Central Dashboard */}
               <div className="bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl p-6 shadow-lg flex items-center justify-center flex-col">
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-white">
-                  {brandName ? (
+                  {brandWebsite ? (
                     <img
-                      src={`https://img.logo.dev/${brandName}?token=pk_DqhPz-piQqeDaR3o1tTDGw`}
+                      src={`https://img.logo.dev/${brandWebsite}?token=pk_DqhPz-piQqeDaR3o1tTDGw`}
                       className="rounded-full"
                     />
                   ) : (
