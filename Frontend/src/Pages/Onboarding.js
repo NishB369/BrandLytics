@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import OnboardingStep0 from "../Components/OnboardingComponents/OnboardingStep0";
 import OnboardingStep1 from "../Components/OnboardingComponents/OnboardingStep1";
 import OnboardingStep2 from "../Components/OnboardingComponents/OnboardingStep2";
+import OnboardingStep3 from "../Components/OnboardingComponents/OnboardingStep3";
 
 // Progress Bar Component
 const ProgressBar = ({ currentStep, totalSteps, isAnimating }) => {
@@ -169,37 +170,6 @@ const Onboarding = () => {
     </div>
   );
 };
-
-// Placeholder components for steps 2-6
-
-const OnboardingStep3 = ({ onNext, onPrev }) => (
-  <div className="max-w-2xl mx-auto">
-    <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
-      <div className="text-center">
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">
-          Step 3 - Keywords
-        </h2>
-        <p className="text-slate-600 mb-8">
-          Your keyword setup component goes here
-        </p>
-        <div className="flex justify-between">
-          <button
-            onClick={onPrev}
-            className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-semibold border-2 border-slate-200 transition-all duration-200"
-          >
-            Back
-          </button>
-          <button
-            onClick={onNext}
-            className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
-          >
-            Continue
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-);
 
 const OnboardingStep4 = ({ onNext, onPrev }) => (
   <div className="max-w-2xl mx-auto">

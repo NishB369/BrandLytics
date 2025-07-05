@@ -15,9 +15,12 @@ const platforms = [
     borderColor: "border-purple-200 hover:border-purple-300",
     shadowColor: "hover:shadow-purple-100",
     example:
-      "Track Nike's latest drops and Physics Wallah's student engagement",
+      "Track visual trends, user engagement through Reels, and conversations via comments and DMs.",
     mentions: "2.3M",
     sentiment: "+42%",
+    recommended: true,
+    defaultSelected: true,
+    trackingFeatures: ["Posts", "Stories", "Reels", "Comments"],
   },
   {
     name: "Twitter",
@@ -25,9 +28,13 @@ const platforms = [
     color: "from-purple-500 to-purple-700",
     borderColor: "border-purple-200 hover:border-purple-300",
     shadowColor: "hover:shadow-purple-100",
-    example: "Monitor McDonald's customer service and Apple's product launches",
+    example:
+      "Monitor real-time conversations, trending topics, and public sentiment on fast-paced events.",
     mentions: "5.7M",
     sentiment: "+38%",
+    recommended: true,
+    defaultSelected: true,
+    trackingFeatures: ["Tweets", "Replies", "Retweets", "Trending"],
   },
   {
     name: "YouTube",
@@ -36,9 +43,12 @@ const platforms = [
     borderColor: "border-purple-200 hover:border-purple-300",
     shadowColor: "hover:shadow-purple-100",
     example:
-      "Analyze PW's course reviews and How a SDE at Google is spending their day",
+      "Analyze long-form video engagement, sentiment in comments, and brand mentions in content.",
     mentions: "1.8M",
     sentiment: "+51%",
+    recommended: false,
+    defaultSelected: false,
+    trackingFeatures: ["Comments", "Video descriptions", "Channel mentions"],
   },
   {
     name: "TikTok",
@@ -46,9 +56,13 @@ const platforms = [
     color: "from-purple-700 to-purple-900",
     borderColor: "border-purple-200 hover:border-purple-300",
     shadowColor: "hover:shadow-purple-100",
-    example: "Catch Starbucks trends and Spotify playlist mentions",
+    example:
+      "Explore short-form video trends, hashtag performance, and viral audio usage.",
     mentions: "3.2M",
     sentiment: "+47%",
+    recommended: true,
+    defaultSelected: true,
+    trackingFeatures: ["Video captions", "Comments", "Hashtags"],
   },
   {
     name: "LinkedIn",
@@ -57,9 +71,12 @@ const platforms = [
     borderColor: "border-purple-200 hover:border-purple-300",
     shadowColor: "hover:shadow-purple-100",
     example:
-      "Follow HDFC's corporate updates and Microsoft's B2B conversations",
+      "Gain insights from professional content, hiring trends, and corporate updates.",
     mentions: "890K",
     sentiment: "+35%",
+    recommended: false,
+    defaultSelected: false,
+    trackingFeatures: ["Posts", "Articles", "Company updates"],
   },
   {
     name: "Reddit",
@@ -67,9 +84,13 @@ const platforms = [
     color: "from-purple-800 to-purple-900",
     borderColor: "border-purple-200 hover:border-purple-300",
     shadowColor: "hover:shadow-purple-100",
-    example: "Discover authentic discussions about your brand",
+    example:
+      "Discover deep community insights, user-generated discussions, and emerging niche topics.",
     mentions: "1.1M",
     sentiment: "+29%",
+    recommended: false,
+    defaultSelected: false,
+    trackingFeatures: ["Posts", "Comments", "Subreddit discussions"],
   },
 ];
 

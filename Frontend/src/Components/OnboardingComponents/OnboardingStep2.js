@@ -51,16 +51,6 @@ export default function OnboardingStep2({ onNext, onPrev, brandData }) {
     brandData?.industry
   );
 
-  // Auto-add essential keywords on mount
-  useEffect(() => {
-    if (brandData?.brandName && keywords.brand.length === 0) {
-      setKeywords((prev) => ({
-        ...prev,
-        brand: [brandData.brandName, `@${brandData.brandName.toLowerCase()}`],
-      }));
-    }
-  }, [brandData]);
-
   const categories = [
     {
       id: "brand",
@@ -181,7 +171,7 @@ export default function OnboardingStep2({ onNext, onPrev, brandData }) {
               </div>
               <button
                 onClick={() => setShowSuggestions(false)}
-                className="text-slate-400 hover:text-slate-600"
+                className="text-slate-400 hover:text-slate-600 cursor-pointer"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -198,7 +188,7 @@ export default function OnboardingStep2({ onNext, onPrev, brandData }) {
                         key={index}
                         onClick={() => addSuggestion(suggestion, category)}
                         disabled={keywords[category].includes(suggestion)}
-                        className={`text-xs px-2 py-1 rounded-full border transition-all ${
+                        className={`text-xs px-2 py-1 rounded-full border transition-all cursor-pointer ${
                           keywords[category].includes(suggestion)
                             ? "bg-green-100 border-green-300 text-green-700"
                             : "bg-white border-slate-300 text-slate-700 hover:border-purple-400"
@@ -225,7 +215,7 @@ export default function OnboardingStep2({ onNext, onPrev, brandData }) {
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg border-2 transition-all ${
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg border-2 transition-all cursor-pointer ${
                     isActive
                       ? `${category.bgColor} ${category.borderColor} shadow-md`
                       : "border-slate-200 bg-white/90 hover:border-slate-300"
@@ -263,7 +253,7 @@ export default function OnboardingStep2({ onNext, onPrev, brandData }) {
             <button
               onClick={() => addKeyword(currentInput)}
               disabled={!currentInput.trim()}
-              className={`px-4 py-3 rounded-lg font-medium flex items-center transition-all ${
+              className={`px-4 py-3 rounded-lg font-medium flex items-center transition-all cursor-pointer ${
                 currentInput.trim()
                   ? "bg-purple-600 hover:bg-purple-700 text-white"
                   : "bg-slate-200 text-slate-400 cursor-not-allowed"
@@ -285,7 +275,7 @@ export default function OnboardingStep2({ onNext, onPrev, brandData }) {
                     {keyword}
                     <button
                       onClick={() => removeKeyword(keyword, activeCategory)}
-                      className="ml-2 hover:text-red-600 transition-colors"
+                      className="ml-2 hover:text-red-600 transition-colors cursor-pointer"
                     >
                       <X className="h-3 w-3" />
                     </button>
@@ -304,48 +294,21 @@ export default function OnboardingStep2({ onNext, onPrev, brandData }) {
           </div>
         </div>
 
-        {/* Preview Stats */}
-        <div className="mb-6 p-4 bg-gradient-to-r from-slate-50 to-purple-50 rounded-xl border border-slate-200">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <Eye className="h-5 w-5 text-purple-600 mr-2" />
-              <span className="font-medium text-slate-800">Preview:</span>
-            </div>
-            <div className="flex items-center space-x-4 text-sm">
-              <div className="flex items-center">
-                <TrendingUp className="h-4 w-4 text-green-600 mr-1" />
-                <span className="text-slate-600">
-                  ~{getEstimatedMentions().toLocaleString()} mentions/month
-                </span>
-              </div>
-              <div className="flex items-center">
-                <Hash className="h-4 w-4 text-blue-600 mr-1" />
-                <span className="text-slate-600">
-                  {getTotalKeywords()} keywords
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Navigation */}
         <div className="flex justify-between items-center">
           <button
             onClick={onPrev}
-            className="px-6 py-3 rounded-lg font-semibold flex items-center transition-all duration-200 bg-slate-100 hover:bg-slate-200 text-slate-700"
+            className="px-6 py-3 rounded-lg font-semibold flex items-center transition-all duration-200 bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back
           </button>
 
           <div className="flex items-center space-x-4">
-            <button className="text-sm text-purple-600 hover:text-purple-700 font-medium">
-              Need help? See examples for Fashion brands
-            </button>
             <button
               onClick={handleContinue}
               disabled={getTotalKeywords() === 0}
-              className={`px-6 py-3 rounded-lg font-semibold flex items-center transition-all duration-200 shadow-lg ${
+              className={`px-6 py-3 rounded-lg font-semibold flex items-center transition-all duration-200 shadow-lg cursor-pointer ${
                 getTotalKeywords() > 0
                   ? "bg-purple-600 hover:bg-purple-700 text-white hover:shadow-xl"
                   : "bg-slate-300 text-slate-500 cursor-not-allowed"
