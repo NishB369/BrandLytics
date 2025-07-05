@@ -5,8 +5,8 @@ import OnboardingStep1 from "../Components/OnboardingComponents/OnboardingStep1"
 // Progress Bar Component
 const ProgressBar = ({ currentStep, totalSteps, isAnimating }) => {
   return (
-    <div className="text-center mb-8">
-      <div className="flex justify-center items-center mb-4">
+    <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-slate-200">
+      <div className="flex justify-center items-center">
         <div className="flex space-x-2">
           {[...Array(totalSteps)].map((_, i) => (
             <div
@@ -21,10 +21,10 @@ const ProgressBar = ({ currentStep, totalSteps, isAnimating }) => {
             />
           ))}
         </div>
+        <div className="ml-4 text-sm text-slate-600 font-medium">
+          Step {currentStep} of {totalSteps - 1}
+        </div>
       </div>
-      <p className="text-sm text-slate-600 font-medium">
-        Step {currentStep} of {totalSteps - 1}
-      </p>
     </div>
   );
 };
@@ -111,35 +111,32 @@ const Onboarding = () => {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-500 rounded-full blur-3xl opacity-10"></div>
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto">
-        {/* Progress Bar */}
-        <ProgressBar
-          currentStep={currentStep}
-          totalSteps={totalSteps}
-          isAnimating={isAnimating}
-        />
+      {/* Progress Bar - Fixed at top */}
+      <ProgressBar
+        currentStep={currentStep}
+        totalSteps={totalSteps}
+        isAnimating={isAnimating}
+      />
 
+      {/* Main Content Container */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto pt-20">
         {/* Step Content */}
         <div className="step-content">
-          {currentStep === 0 && <OnboardingStep0 {...stepProps} />}
-          {currentStep === 1 && <OnboardingStep1 {...stepProps} />}
+          {currentStep === 0 && (
+            <div className="max-w-4xl mx-auto">
+              <OnboardingStep0 {...stepProps} />
+            </div>
+          )}
+          {currentStep === 1 && (
+            <div className="max-w-2xl mx-auto">
+              <OnboardingStep1 {...stepProps} />
+            </div>
+          )}
           {currentStep === 2 && <OnboardingStep2 {...stepProps} />}
           {currentStep === 3 && <OnboardingStep3 {...stepProps} />}
           {currentStep === 4 && <OnboardingStep4 {...stepProps} />}
           {currentStep === 5 && <OnboardingStep5 {...stepProps} />}
           {currentStep === 6 && <OnboardingStep6 {...stepProps} />}
-        </div>
-
-        {/* Floating elements */}
-        <div className="absolute top-20 -left-20 bg-white/90 backdrop-blur-sm rounded-lg p-3 border border-slate-200 shadow-lg animate-float hidden lg:block z-20">
-          <div className="text-purple-600 font-semibold text-sm">
-            📊 Real-time Analytics
-          </div>
-        </div>
-        <div className="absolute -bottom-4 -right-8 bg-white/90 backdrop-blur-sm rounded-lg p-3 border border-slate-200 shadow-lg animate-float delay-1000 hidden lg:block z-20">
-          <div className="text-violet-600 font-semibold text-sm">
-            🎯 Smart Insights
-          </div>
         </div>
       </div>
 
@@ -163,180 +160,140 @@ const Onboarding = () => {
   );
 };
 
-// Placeholder components - Replace these with your actual imports
-// const OnboardingStep0 = ({ onNext, onSkip }) => (
-//   <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
-//     <div className="text-center">
-//       <h1 className="text-3xl font-bold text-slate-900 mb-4">
-//         Step 0 - Welcome
-//       </h1>
-//       <p className="text-slate-600 mb-8">
-//         Your existing OnboardingStep0 component goes here
-//       </p>
-//       <div className="flex gap-4 justify-center">
-//         <button
-//           onClick={onNext}
-//           className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
-//         >
-//           Let's Get Started
-//         </button>
-//         <button
-//           onClick={onSkip}
-//           className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-semibold border-2 border-slate-200 transition-all duration-200"
-//         >
-//           Skip Setup
-//         </button>
-//       </div>
-//     </div>
-//   </div>
-// );
-
-// const OnboardingStep1 = ({ onNext, onPrev, onboardingData, updateData }) => (
-//   <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
-//     <div className="text-center">
-//       <h2 className="text-2xl font-bold text-slate-900 mb-4">
-//         Step 1 - Brand Info
-//       </h2>
-//       <p className="text-slate-600 mb-8">
-//         Your brand setup component goes here
-//       </p>
-//       <div className="flex justify-between">
-//         <button
-//           onClick={onPrev}
-//           className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-semibold border-2 border-slate-200 transition-all duration-200"
-//         >
-//           Back
-//         </button>
-//         <button
-//           onClick={onNext}
-//           className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
-//         >
-//           Continue
-//         </button>
-//       </div>
-//     </div>
-//   </div>
-// );
-
+// Placeholder components for steps 2-6
 const OnboardingStep2 = ({ onNext, onPrev }) => (
-  <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
-    <div className="text-center">
-      <h2 className="text-2xl font-bold text-slate-900 mb-4">
-        Step 2 - Platforms
-      </h2>
-      <p className="text-slate-600 mb-8">
-        Your platform selection component goes here
-      </p>
-      <div className="flex justify-between">
-        <button
-          onClick={onPrev}
-          className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-semibold border-2 border-slate-200 transition-all duration-200"
-        >
-          Back
-        </button>
-        <button
-          onClick={onNext}
-          className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
-        >
-          Continue
-        </button>
+  <div className="max-w-2xl mx-auto">
+    <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
+      <div className="text-center">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">
+          Step 2 - Platforms
+        </h2>
+        <p className="text-slate-600 mb-8">
+          Your platform selection component goes here
+        </p>
+        <div className="flex justify-between">
+          <button
+            onClick={onPrev}
+            className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-semibold border-2 border-slate-200 transition-all duration-200"
+          >
+            Back
+          </button>
+          <button
+            onClick={onNext}
+            className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+          >
+            Continue
+          </button>
+        </div>
       </div>
     </div>
   </div>
 );
 
 const OnboardingStep3 = ({ onNext, onPrev }) => (
-  <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
-    <div className="text-center">
-      <h2 className="text-2xl font-bold text-slate-900 mb-4">
-        Step 3 - Keywords
-      </h2>
-      <p className="text-slate-600 mb-8">
-        Your keyword setup component goes here
-      </p>
-      <div className="flex justify-between">
-        <button
-          onClick={onPrev}
-          className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-semibold border-2 border-slate-200 transition-all duration-200"
-        >
-          Back
-        </button>
-        <button
-          onClick={onNext}
-          className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
-        >
-          Continue
-        </button>
+  <div className="max-w-2xl mx-auto">
+    <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
+      <div className="text-center">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">
+          Step 3 - Keywords
+        </h2>
+        <p className="text-slate-600 mb-8">
+          Your keyword setup component goes here
+        </p>
+        <div className="flex justify-between">
+          <button
+            onClick={onPrev}
+            className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-semibold border-2 border-slate-200 transition-all duration-200"
+          >
+            Back
+          </button>
+          <button
+            onClick={onNext}
+            className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+          >
+            Continue
+          </button>
+        </div>
       </div>
     </div>
   </div>
 );
 
 const OnboardingStep4 = ({ onNext, onPrev }) => (
-  <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
-    <div className="text-center">
-      <h2 className="text-2xl font-bold text-slate-900 mb-4">
-        Step 4 - Notifications
-      </h2>
-      <p className="text-slate-600 mb-8">
-        Your notification settings component goes here
-      </p>
-      <div className="flex justify-between">
-        <button
-          onClick={onPrev}
-          className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-semibold border-2 border-slate-200 transition-all duration-200"
-        >
-          Back
-        </button>
-        <button
-          onClick={onNext}
-          className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
-        >
-          Continue
-        </button>
+  <div className="max-w-2xl mx-auto">
+    <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
+      <div className="text-center">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">
+          Step 4 - Notifications
+        </h2>
+        <p className="text-slate-600 mb-8">
+          Your notification settings component goes here
+        </p>
+        <div className="flex justify-between">
+          <button
+            onClick={onPrev}
+            className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-semibold border-2 border-slate-200 transition-all duration-200"
+          >
+            Back
+          </button>
+          <button
+            onClick={onNext}
+            className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+          >
+            Continue
+          </button>
+        </div>
       </div>
     </div>
   </div>
 );
 
 const OnboardingStep5 = ({ onNext, onPrev }) => (
-  <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
-    <div className="text-center">
-      <h2 className="text-2xl font-bold text-slate-900 mb-4">
-        Step 5 - Team Setup
-      </h2>
-      <p className="text-slate-600 mb-8">Your team setup component goes here</p>
-      <div className="flex justify-between">
-        <button
-          onClick={onPrev}
-          className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-semibold border-2 border-slate-200 transition-all duration-200"
-        >
-          Back
-        </button>
-        <button
-          onClick={onNext}
-          className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
-        >
-          Continue
-        </button>
+  <div className="max-w-2xl mx-auto">
+    <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
+      <div className="text-center">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">
+          Step 5 - Team Setup
+        </h2>
+        <p className="text-slate-600 mb-8">
+          Your team setup component goes here
+        </p>
+        <div className="flex justify-between">
+          <button
+            onClick={onPrev}
+            className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-semibold border-2 border-slate-200 transition-all duration-200"
+          >
+            Back
+          </button>
+          <button
+            onClick={onNext}
+            className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+          >
+            Continue
+          </button>
+        </div>
       </div>
     </div>
   </div>
 );
 
 const OnboardingStep6 = ({ onFinish }) => (
-  <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
-    <div className="text-center">
-      <h2 className="text-2xl font-bold text-slate-900 mb-4">
-        Step 6 - Complete!
-      </h2>
-      <p className="text-slate-600 mb-8">Your completion component goes here</p>
-      <button
-        onClick={onFinish}
-        className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-      >
-        Go to Dashboard
-      </button>
+  <div className="max-w-2xl mx-auto">
+    <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
+      <div className="text-center">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">
+          Step 6 - Complete!
+        </h2>
+        <p className="text-slate-600 mb-8">
+          Your completion component goes here
+        </p>
+        <button
+          onClick={onFinish}
+          className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+        >
+          Go to Dashboard
+        </button>
+      </div>
     </div>
   </div>
 );
